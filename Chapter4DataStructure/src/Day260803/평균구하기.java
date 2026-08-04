@@ -1,3 +1,4 @@
+package Day260803;
 import java.util.Scanner;
 
 public class 평균구하기 {
