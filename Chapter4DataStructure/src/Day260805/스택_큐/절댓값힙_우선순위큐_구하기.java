@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 
-public class 절댓값힙_구하기 {
+public class 절댓값힙_우선순위큐_구하기 {
 
 	public static void main(String[] args) throws IOException {
 		// 배열에 정수 넣기 -> priorityQueue로 할 거임 정렬 할 거기 때문에
