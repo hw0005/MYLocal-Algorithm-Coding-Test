@@ -64,10 +64,10 @@ public class K번째수구하기_퀵정렬 {
 		
 		
 		while (i <= j) { // j를 땡기는데 i를 만날 때까지 반복
-			while (j >= i && pivot < a[j]) { // 피봇보다 작은 수가 나올 떄까지
+			while (j >= s + 1 && pivot < a[j]) { // 피봇보다 작은 수가 나올 떄까지
 				j--;
 			}
-			while (i <= j && pivot > a[i]) { // 피봇보다 큰 수가 나올 때까지
+			while (i <= e && pivot > a[i]) { // 피봇보다 큰 수가 나올 때까지
 				i++;
 			}
 			if (i <= j) {
