@@ -1,4 +1,4 @@
-package Day260817.BinarySearch;
+package Day260817.이진탐색;
 
 import java.io.BufferedReader;
 import java.io.IOException;
