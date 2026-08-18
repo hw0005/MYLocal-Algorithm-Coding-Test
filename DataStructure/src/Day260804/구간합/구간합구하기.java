@@ -1,0 +1,43 @@
+package Day260804.구간합;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class 구간합구하기 {
+
+	public static void main(String[] args) throws IOException {
+		// 빠르게 읽어와 Scanner X
+		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+		// 1줄 읽어와
+		StringTokenizer st = new StringTokenizer (br.readLine());
+		
+		// 숫자 개수
+		int suNo = Integer.parseInt(st.nextToken());
+		
+		// 질의 개수
+		int quizNo = Integer.parseInt(st.nextToken());
+		
+		long[] S = new long[suNo + 1];
+		
+		
+		// 1줄 (배열 값)읽어
+		st = new StringTokenizer (br.readLine());
+		
+		for (int i = 1; i <= suNo; i++) {
+			S[i] = S[i-1] + Integer.parseInt(st.nextToken());
+		}
+		
+		for (int q = 0; q < quizNo; q++) {
+			st = new StringTokenizer(br.readLine());
+			int i = Integer.parseInt(st.nextToken());
+			int j = Integer.parseInt(st.nextToken());
+			
+			System.out.println(S[j] - S[i-1]);
+			
+		}
+		
+		
+	}
+
+}
