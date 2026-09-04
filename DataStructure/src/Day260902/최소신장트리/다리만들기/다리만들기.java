@@ -27,8 +27,8 @@ public class 다리만들기 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken()); // 행
 		m = Integer.parseInt(st.nextToken()); // 열 
-		map = new int[n][n];
-		visited = new boolean[n][n];
+		map = new int[n][m];
+		visited = new boolean[n][m];
 		
 		
 		// 정보 저장
@@ -39,7 +39,7 @@ public class 다리만들기 {
 			}
 		}
 		
-		sNum = 1; // 이게 왜 있는 거임
+		sNum = 1; // 섬 개수 세기 및 섬따로따로 분리하는 핵심 변수
 		sumlist = new ArrayList<>();
 		
 		 // 섬 분리작업수행
