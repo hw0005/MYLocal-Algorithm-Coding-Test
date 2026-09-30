@@ -1,4 +1,4 @@
-package Day260929.동적계획법;
+package Day260930.동적계획법복습;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,8 +11,7 @@ public class 정수를1로만들기 {
 		
 		int n = Integer.parseInt(br.readLine());
 		
-		int[] d = new int[n+1];
-		
+		int [] d = new int[n+1];
 		d[1] = 0;
 		
 		for (int i=2; i<=n; i++) {
@@ -24,8 +23,8 @@ public class 정수를1로만들기 {
 				d[i] = Math.min(d[i], d[i/3] + 1);
 			}
 		}
-		System.out.println(d[n]);
 		
+		System.out.println(d[n]);
 		
 		
 		

@@ -1,4 +1,4 @@
-package Day260929.동적계획법;
+package Day260930.동적계획법복습;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,16 +7,16 @@ import java.util.StringTokenizer;
 
 public class 행렬곱연산횟수의최솟값구하기 {
 	static int n;
-	static int[][] d;
 	static Matrix[] m;
+	static int[][] d;
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
-
-		n = Integer.parseInt(br.readLine());
 		
-		d = new int[n+1][n+1];
+		n = Integer.parseInt(br.readLine());
 		m = new Matrix[n+1];
+		d = new int[n+1][n+1];
 		
 		for (int i=0; i<d.length; i++) {
 			for (int j=0; j<d[i].length; j++) {
@@ -28,37 +28,37 @@ public class 행렬곱연산횟수의최솟값구하기 {
 			st = new StringTokenizer(br.readLine());
 			int y = Integer.parseInt(st.nextToken());
 			int x = Integer.parseInt(st.nextToken());
+			
 			m[i] = new Matrix(y, x);
 		}
 		
 		System.out.println(excute(1, n));
 		
 		
+		
 	}
 	
-	private static int excute(int s, int e) {
+	private static int excute (int s, int e) {
 		int result = Integer.MAX_VALUE;
 		
-		if (d[s][e] != -1) {
+		if(d[s][e] != -1) {
 			return d[s][e];
 		}
 		if (s==e) {
 			return 0;
 		}
-		
-		if (s+1 == e) {
+		if (s + 1 == e) {
 			return m[s].y * m[s].x * m[e].x;
 		}
-		
-		for (int i=s; i<=e; i++) {
-			result = Math.min(result, m[s].y * m[i].x * m[e].x + excute(s, i) + excute(i+1, e));
+		for (int i=s; i<e; i++) {
+			result = Math.min( result, m[s].y * m[i].x * m[e].x + excute(s, i) + excute(i+1, e));
 		}
 		
 		d[s][e] = result;
 		return d[s][e];
 	}
 	
-	public static class Matrix {
+	private static class Matrix {
 		int y;
 		int x;
 		Matrix(int y, int x) {

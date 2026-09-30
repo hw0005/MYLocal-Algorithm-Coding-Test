@@ -1,4 +1,4 @@
-package Day260929.동적계획법;
+package Day260929.동적계획법복습;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -57,7 +57,7 @@ public class DDR을해보자 {
 					continue;
 				}
 				for (int j=0; j<5; j++) {
-					d[s][n][i] = Math.min(d[s-1][n][i] + mp[j][n], d[s][n][i]);
+					d[s][n][i] = Math.min(d[s-1][i][j] + mp[j][n], d[s][n][i]);
 				}
 			}
 			s++;

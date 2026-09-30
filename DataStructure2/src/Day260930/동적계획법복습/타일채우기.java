@@ -1,4 +1,4 @@
-package Day260929.동적계획법;
+package Day260930.동적계획법복습;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,8 +12,9 @@ public class 타일채우기 {
 		int n = Integer.parseInt(br.readLine());
 		
 		int[] d = new int[n+1];
-		d[1]=1;
-		d[2]=2;
+		d[1] = 1;
+		d[2] = 2;
+		
 		for (int i=3; i<=n; i++) {
 			d[i] = d[i-1] + d[i-2];
 		}
@@ -22,7 +23,6 @@ public class 타일채우기 {
 		
 		
 		
-
 	}
 
 }

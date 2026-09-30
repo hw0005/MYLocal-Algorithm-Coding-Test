@@ -1,4 +1,4 @@
-package Day260929.동적계획법;
+package Day260929.동적계획법복습;
 
 import java.io.BufferedReader;
 import java.io.IOException;
