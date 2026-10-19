@@ -1,0 +1,61 @@
+package Day261019.BFS복습;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class 미로탐색하기 {
+	static int[][] miro;
+	static boolean[][] visited;
+	static int n, m;
+	
+	static int[] dr = {-1, 0, 1, 0};
+	static int[] dc = {0, 1, 0, -1};
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
+		
+		miro = new int[n][m];
+		visited = new boolean[n][m];
+		
+		for (int i=0; i<n; i++) {
+			String line = br.readLine();
+			for (int j=0; j<m; j++) {
+				miro[i][j] = line.charAt(j) - '0';
+			}
+		}
+		
+		BFS(0, 0);
+		System.out.println(miro[n-1][m-1]);
+	}
+	
+	private static void BFS(int i, int j) {
+		Queue<int[]> queue = new LinkedList<>();
+		queue.add(new int[] {i, j});
+		visited[i][j] = true;
+		
+		while (!queue.isEmpty()) {
+			int[] now = queue.poll();
+			
+			for (int k=0; k<4; k++) {
+				int nr = dr[k] + now[0];
+				int nc = dc[k] + now[1];
+				
+				if (nr >=0 && nc>=0 && nr<n && nc<m) {
+					if( miro[nr][nc] == 1 && !visited[nr][nc] ) {
+						visited[nr][nc] = true;
+						miro[nr][nc] = miro[now[0]][now[1]] + 1;
+						queue.add(new int[] {nr, nc});
+					}
+				}
+			}
+		}
+	}
+}
